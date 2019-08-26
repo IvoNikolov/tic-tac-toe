@@ -10,7 +10,7 @@
       <ion-col size="4">
           <ion-row *ngFor="let row of gameArray; index as i">
               <ion-col>
-              <ion-item >
+              <ion-item lines="none">
                 <ion-thumbnail *ngFor="let col of row; index as z">
                   <ion-img  [src]="getImage(i,z)" (click)="onChangeImg(i,z)"></ion-img>
                 </ion-thumbnail>
