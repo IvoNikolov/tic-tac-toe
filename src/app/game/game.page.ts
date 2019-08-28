@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-game',
@@ -9,10 +10,23 @@ export class GamePage implements OnInit {
 
   gameArray: number[][] = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
   isPlayerOne = true;
+  playerOneTime = 60;
+  playerTwoTime = 60;
 
   constructor() { }
 
   ngOnInit() {
+    const source = interval(1000);
+    const subscribe = source.subscribe(val => {
+      if (this.isPlayerOne) {
+        this.playerOneTime--;
+      } else {
+        this.playerTwoTime--;
+      }
+      if (this.playerOneTime < 0 || this.playerTwoTime < 0) {
+        subscribe.unsubscribe();
+      }
+    });
   }
 
   onChangeImg(i: number, z: number) {
@@ -60,4 +74,6 @@ export class GamePage implements OnInit {
         console.log('Game won by ' + this.gameArray[0][2]);
   }
  }
+
+ 
 }

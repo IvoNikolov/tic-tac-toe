@@ -22,6 +22,7 @@
     <ion-row> 
       <ion-col>
         <p [ngClass]="{'paragraph': isPlayerOne}">{{isPlayerOne ? 'Player 1' : 'Player 2'}}</p>
+        <p [ngClass]="{'paragraph': isPlayerOne}">{{isPlayerOne ? playerOneTime : playerTwoTime}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
