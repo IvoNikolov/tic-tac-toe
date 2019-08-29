@@ -23,8 +23,15 @@ export class GamePage implements OnInit {
       } else {
         this.playerTwoTime--;
       }
+
       if (this.playerOneTime < 0 || this.playerTwoTime < 0) {
         subscribe.unsubscribe();
+        if (this.playerOneTime < 0) {
+          console.log('Game won by player2');
+        }
+        if (this.playerTwoTime < 0) {
+          console.log('Game won by player1');
+        }
       }
     });
   }
