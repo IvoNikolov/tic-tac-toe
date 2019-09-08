@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-game',
@@ -12,26 +13,27 @@ export class GamePage implements OnInit {
   isPlayerOne = true;
   playerOneTime = 60;
   playerTwoTime = 60;
+  subscription;
 
-  constructor() { }
+  constructor(private alertController: AlertController) {
+  }
 
   ngOnInit() {
+    this.startTimer();
+  }
+
+  startTimer() {
     const source = interval(1000);
-    const subscribe = source.subscribe(val => {
+    this.subscription = source.subscribe(val => {
       if (this.isPlayerOne) {
         this.playerOneTime--;
       } else {
         this.playerTwoTime--;
       }
 
-      if (this.playerOneTime < 0 || this.playerTwoTime < 0) {
-        subscribe.unsubscribe();
-        if (this.playerOneTime < 0) {
-          console.log('Game won by player2');
-        }
-        if (this.playerTwoTime < 0) {
-          console.log('Game won by player1');
-        }
+      if (this.playerOneTime < 1 || this.playerTwoTime < 1) {
+        this.subscription.unsubscribe();
+        this.presentAlert((this.playerOneTime < this.playerTwoTime) ? 'Game won by player2' : 'Game won by player1');
       }
     });
   }
@@ -61,26 +63,39 @@ export class GamePage implements OnInit {
  checkStatus(i: number, z: number) {
   if ((this.gameArray[i][0] === this.gameArray[i][1]) &&
       (this.gameArray[i][0] === this.gameArray[i][2])) {
+        this.presentAlert('Game won by ' + this.gameArray[i][0]);
         console.log('Game won by ' + this.gameArray[i][0]);
   }
 
   if ((this.gameArray[0][z] === this.gameArray[1][z]) &&
       (this.gameArray[0][z] === this.gameArray[2][z])) {
+        this.presentAlert('Game won by ' + this.gameArray[0][z]);
         console.log('Game won by ' + this.gameArray[0][z]);
   }
 
   if ((this.gameArray[0][0] === this.gameArray[1][1]) &&
       (this.gameArray[0][0] === this.gameArray[2][2]) &&
       (this.gameArray[0][0] !== 0)) {
+        this.presentAlert('Game won by ' + this.gameArray[0][0]);
         console.log('Game won by ' + this.gameArray[0][0]);
   }
 
   if ((this.gameArray[0][2] === this.gameArray[1][1]) &&
       (this.gameArray[0][2] === this.gameArray[2][0]) &&
       (this.gameArray[0][2] !== 0)) {
+        this.presentAlert('Game won by ' + this.gameArray[0][2]);
         console.log('Game won by ' + this.gameArray[0][2]);
   }
  }
 
- 
+ async presentAlert(message: string) {
+  const alert = await this.alertController.create({
+    // header: 'Alert',
+    // subHeader: 'Subtitle',
+    message,
+    buttons: ['OK']
+  });
+  this.subscription.unsubscribe();
+  await alert.present();
+ }
 }
