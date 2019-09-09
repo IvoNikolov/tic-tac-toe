@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { interval, Subscription } from 'rxjs';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -13,10 +13,9 @@ export class GamePage implements OnInit {
   isPlayerOne = true;
   playerOneTime = 60;
   playerTwoTime = 60;
-  subscription;
+  subscription: Subscription;
 
-  constructor(private alertController: AlertController) {
-  }
+  constructor(private alertController: AlertController) {}
 
   ngOnInit() {
     this.startTimer();
@@ -86,6 +85,7 @@ export class GamePage implements OnInit {
         this.presentAlert('Game won by ' + this.gameArray[0][2]);
         console.log('Game won by ' + this.gameArray[0][2]);
   }
+
  }
 
  async presentAlert(message: string) {
