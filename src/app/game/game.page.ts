@@ -14,10 +14,14 @@ export class GamePage implements OnInit {
   playerOneTime = 60;
   playerTwoTime = 60;
   subscription: Subscription;
+  gameOnHold = true;
 
   constructor(private alertController: AlertController) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  startGame() {
+    this.gameOnHold = false;
     this.startTimer();
   }
 
@@ -38,14 +42,16 @@ export class GamePage implements OnInit {
   }
 
   onChangeImg(i: number, z: number) {
-    if (this.gameArray[i][z] === 0) {
-      if (this.isPlayerOne) {
-        this.gameArray[i][z] = 1;
-      } else {
-        this.gameArray[i][z] = 2;
+    if (!this.gameOnHold) {
+      if (this.gameArray[i][z] === 0) {
+        if (this.isPlayerOne) {
+          this.gameArray[i][z] = 1;
+        } else {
+          this.gameArray[i][z] = 2;
+        }
+        this.isPlayerOne = !this.isPlayerOne;
+        this.checkStatus(i, z);
       }
-      this.isPlayerOne = !this.isPlayerOne;
-      this.checkStatus(i, z);
     }
   }
 
@@ -88,7 +94,7 @@ export class GamePage implements OnInit {
 
   if ((!this.gameArray[0].includes(0)) &&
       (!this.gameArray[1].includes(0)) &&
-      (!this.gameArray[2].includes(0)) ) {
+      (!this.gameArray[2].includes(0))) {
         this.presentAlert((this.playerOneTime < this.playerTwoTime) ? 'Game won by player2' : 'Game won by player1');
         this.subscription.unsubscribe();
   }
@@ -99,9 +105,25 @@ export class GamePage implements OnInit {
     // header: 'Alert',
     // subHeader: 'Subtitle',
     message,
-    buttons: ['OK']
+    buttons: [{
+      text: 'Ok',
+      handler: () => {
+        this.resetBoard();
+      }
+    }]
   });
   this.subscription.unsubscribe();
   await alert.present();
+ }
+
+ resetBoard() {
+  for (let i = 0; i < 3; i++) {
+    for (let z = 0; z < 3; z++) {
+      this.gameArray[i][z] = 0;
+    }
+  }
+  this.gameOnHold = true;
+  this.playerOneTime = 60;
+  this.playerTwoTime = 60;
  }
 }
