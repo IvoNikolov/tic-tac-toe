@@ -86,6 +86,12 @@ export class GamePage implements OnInit {
         console.log('Game won by ' + this.gameArray[0][2]);
   }
 
+  if ((!this.gameArray[0].includes(0)) &&
+      (!this.gameArray[1].includes(0)) &&
+      (!this.gameArray[2].includes(0)) ) {
+        this.presentAlert((this.playerOneTime < this.playerTwoTime) ? 'Game won by player2' : 'Game won by player1');
+        this.subscription.unsubscribe();
+  }
  }
 
  async presentAlert(message: string) {
