@@ -7,7 +7,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="2">
+      <ion-col size="2" class="pillar">
           <ion-row>
             <ion-col>
                 Player 1
@@ -21,23 +21,23 @@
       </ion-col>
       <ion-col size="8">
         <ion-grid>
-          <ion-row *ngFor="let row of gameArray; index as i">
-            <ion-col size="6" offset="2">
-              <ion-item lines="none">
-                <ion-thumbnail *ngFor="let col of row; index as z">
+          <ion-row *ngFor="let row of gameArray; index as i" >
+            <ion-col offset="1.5" size="12" class="no-distance" *ngIf="!gameOnHold">
+              <ion-item lines="none" class="no-distance">
+                <ion-thumbnail *ngFor="let col of row; index as z" class="no-distance">
                   <ion-img [src]="getImage(i,z)" (click)="onChangeImg(i,z)"></ion-img>
                 </ion-thumbnail>
               </ion-item>
-            </ion-col>
+            </ion-col>     
           </ion-row>
           <ion-row>
-            <ion-col size="12" offset="2.8">
-                <ion-button *ngIf="gameOnHold" (click)="startGame()" >Start Game</ion-button>
-            </ion-col>
+              <ion-col *ngIf="gameOnHold">
+                  <ion-button (click)="startGame()" >Start Game</ion-button>
+              </ion-col>
           </ion-row>
         </ion-grid>
       </ion-col>
-      <ion-col size="2">
+      <ion-col size="2" class="pillar">
         <ion-row>
           <ion-col>
               Player 2
