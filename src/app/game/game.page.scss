@@ -9,31 +9,35 @@ ion-content{
 
 ion-img {
     border: 5px brown solid;
-    width: 80px;
-    height: 80px;
-    fill: aliceblue;
+    border-radius: 35%;
+    width: 86px;
+    height: 86px;
 }
 ion-button {
     width: 100%;
     height: 200%;
     padding-top: 10%;
-    //padding-bottom: 30%;
 }
 
 .no-distance {
-    width: 76%;
+    width: 100%;
     height: 100%;
-    margin: 0%;
-    border: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%;
-    padding-left: 0%;
-    padding-right: 0%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0; 
 }
 
 .pillar{
     border: 5px brown solid;
+    border-radius: 15%;
+    padding-bottom: 20%;
+    text-align: center;
 }
+
+.img-pillar{
+    width: 250%; 
+    height : 320%; 
+}
+
 
 
 
