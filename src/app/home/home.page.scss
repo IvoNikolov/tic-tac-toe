@@ -1,3 +1,78 @@
-ion-content {
-    --background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+.block, .block2, .block3, .block4, .block5, .block6, .block7 {
+  position: absolute;
+  display: block;
+  list-style: none;
+  background: rgba(255,255,255, 0.2);
+  animation: animate 15s linear infinite;
+  animation-duration: 10s;
+  bottom: -150px;
+  
+}
+
+.block {
+  width: 60px;
+  height: 60px;
+  animation-delay: 4s;
+}
+
+.block2 {
+  left: 40%;
+  width: 40px;
+  height: 40px;
+  animation-delay: 2s;
+}
+
+.block3 {
+  left: 80%;
+  width: 90px;
+  height: 90px;
+  animation-delay: 4s;
+}
+
+.block4 {
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  animation-delay: 6s;
+}
+
+.block5 {
+  left: 85%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 6.5s;
+}
+
+.block6 {
+  left: 25%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 8s;
+}
+
+.block7 {
+  left: 85%;
+  width: 50px;
+  height: 50px;
+  animation-delay: 8s;
+}
+
+@keyframes animate{
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
   }
+  100%{
+      transform: translateY(-800px) rotate(360deg);
+      opacity: 0;
+  }
+
+}
+
+ion-button{
+  width: 100%;
+}
+
+ion-grid {
+  padding-top: 80px;
+}
