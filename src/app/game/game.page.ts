@@ -15,8 +15,8 @@ export class GamePage implements OnInit {
   playerTwoTime = 60;
   subscription: Subscription;
   gameOnHold = true;
-  playerOneAvatar = './../../assets/elements/plOneAvatar.png';
-  playerTwoAvatar = './../../assets/elements/plOneAvatar.png';
+  playerOneAvatar = './../../assets/elements/avatar1.png';
+  playerTwoAvatar = './../../assets/elements/avatar2.png';
 
   constructor(private alertController: AlertController) {}
 

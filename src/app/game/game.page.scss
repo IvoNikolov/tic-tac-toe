@@ -30,37 +30,42 @@ ion-button {
 
 
 
-.pillar{
-    border: 5px brown solid;
-    border-radius: 15%;
-    text-align: center;
-    //padding-bottom: 20%;
-}
+// .pillar{
+//     border: 5px brown solid;
+//     border-radius: 15%;
+//     text-align: center;
+//     //padding-bottom: 20%;
+// }
 
-.img-pillar {
-    border: 5px brown solid;
-    border-radius: 35%;
-    width: 100px;
-    height: 180px;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0; 
-}
+// .img-pillar {
+//     border: 5px brown solid;
+//     border-radius: 35%;
+//     width: 100px;
+//     height: 180px;
+//     padding: 0 0 0 0;
+//     margin: 0 0 0 0; 
+// }
 
-.img-item {
-    //height: 120%;
-    width: 8rem;
-    height: 14rem;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0; 
-}
+// .img-item {
+//     //height: 120%;
+//     width: 8rem;
+//     height: 14rem;
+//     padding: 0 0 0 0;
+//     margin: 0 0 0 0; 
+// }
 
-.img-tumb {
-    //height: 120%;
-    ///width: 100%;
-    width: 8rem;
-    height: 18rem;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0; 
+// .img-tumb {
+//     //height: 120%;
+//     ///width: 100%;
+//     width: 8rem;
+//     height: 18rem;
+//     padding: 0 0 0 0;
+//     margin: 0 0 0 0; 
+// }
+
+ion-thumbnail {
+    --size: 8rem;
+    --border-radius: 35%;
 }
 
 

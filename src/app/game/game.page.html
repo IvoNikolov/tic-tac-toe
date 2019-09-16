@@ -7,24 +7,22 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col size="3" class="pillar">
+      <ion-col size="3">
           <ion-row>
-            <ion-col>
-                Player 1
+            <ion-col class="ion-text-center">
+                 Player 1 
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col>
+            <ion-col class="ion-text-center">
                 {{playerOneTime}}
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col offset="1" class="test" no-padding>
-              <ion-item lines="none" class="img-item" no-padding>
-                  <ion-thumbnail class="img-tumb" no-padding> 
-                      <ion-img [src]="playerOneAvatar" class="img-pillar" no-padding></ion-img>
-                     </ion-thumbnail>
-              </ion-item>         
+            <ion-col>
+                <ion-thumbnail > 
+                    <ion-img [src]="playerOneAvatar"></ion-img>
+                </ion-thumbnail>
             </ion-col>
           </ion-row> 
       </ion-col>
@@ -48,16 +46,24 @@
       </ion-col>
       <ion-col size="3" class="pillar">
         <ion-row>
-          <ion-col>
+          <ion-col class="ion-text-center">
               Player 2
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col class="ion-text-center">
               {{playerTwoTime}}
           </ion-col>
         </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-thumbnail > 
+                    <ion-img [src]="playerTwoAvatar"></ion-img>
+                </ion-thumbnail>
+            </ion-col>
+          </ion-row>
       </ion-col>
     </ion-row>
+   
   </ion-grid>
 </ion-content>
