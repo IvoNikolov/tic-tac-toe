@@ -20,7 +20,7 @@
           </ion-row>
           <ion-row>
             <ion-col>
-                <ion-thumbnail > 
+                <ion-thumbnail class="thumbnail-style"> 
                     <ion-img [src]="playerOneAvatar"></ion-img>
                 </ion-thumbnail>
             </ion-col>
@@ -28,9 +28,9 @@
       </ion-col>
       <ion-col size="6">
         <ion-grid>
-          <ion-row *ngFor="let row of gameArray; index as i" >
+          <ion-row *ngFor="let row of gameArray; index as i" class="board">
             <ion-col class="no-distance" *ngIf="!gameOnHold">
-              <ion-item lines="none" class="no-distance">
+              <ion-item lines="none" color="transparent">
                 <ion-thumbnail *ngFor="let col of row; index as z" class="no-distance">
                   <ion-img class="img-board" [src]="getImage(i,z)" (click)="onChangeImg(i,z)"></ion-img>
                 </ion-thumbnail>
@@ -55,9 +55,9 @@
               {{playerTwoTime}}
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row text-align-center>
             <ion-col>
-                <ion-thumbnail > 
+                <ion-thumbnail class="thumbnail-style"> 
                     <ion-img [src]="playerTwoAvatar"></ion-img>
                 </ion-thumbnail>
             </ion-col>

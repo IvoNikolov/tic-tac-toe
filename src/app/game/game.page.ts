@@ -104,8 +104,6 @@ export class GamePage implements OnInit {
 
  async presentAlert(message: string) {
   const alert = await this.alertController.create({
-    // header: 'Alert',
-    // subHeader: 'Subtitle',
     message,
     buttons: [{
       text: 'Ok',
