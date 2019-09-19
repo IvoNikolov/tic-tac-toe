@@ -17,10 +17,18 @@ export class GamePage implements OnInit {
   gameOnHold = true;
   playerOneAvatar = './../../assets/elements/avatar1.png';
   playerTwoAvatar = './../../assets/elements/avatar2.png';
+  selectedRandomQuote: string;
+  quotes = ['Strive for greatness. – Lebron James',
+              'I have nothing to lose but something to gain. – Eminem ',
+              'Never let your emotions overpower your intelligence. – Drake'];
+  randNumber: number;
 
   constructor(private alertController: AlertController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.randNumber = Math.floor(Math.random() * 3);
+    this.selectedRandomQuote = this.quotes[this.randNumber];
+  }
 
   startGame() {
     this.gameOnHold = false;

@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>game</ion-title>
+  <ion-toolbar class="header-background-color">
+    <ion-title [ngClass]="{'tex': !gameOnHold }" > {{ gameOnHold ? selectedRandomQuote : 'Let\'s go players!'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -39,7 +39,7 @@
           </ion-row>
           <ion-row>
               <ion-col *ngIf="gameOnHold">
-                  <ion-button (click)="startGame()" >Start Game</ion-button>
+                  <ion-button (click)="startGame()">Start Game</ion-button>
               </ion-col>
           </ion-row>
         </ion-grid>
