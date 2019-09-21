@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="header-background-color">
-    <ion-title [ngClass]="{'title-style': !gameOnHold }" > {{ gameOnHold ? selectedRandomQuote : 'Let\'s go players!'}}</ion-title>
+    <ion-title [ngClass]="{'title-style-game-started': !gameOnHold }" > {{ gameOnHold ? selectedRandomQuote : 'Let\'s go players!'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 

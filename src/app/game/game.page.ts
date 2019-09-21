@@ -26,6 +26,10 @@ export class GamePage implements OnInit {
   constructor(private alertController: AlertController) {}
 
   ngOnInit() {
+   this.getQuote();
+  }
+
+  getQuote() {
     this.randNumber = Math.floor(Math.random() * 3);
     this.selectedRandomQuote = this.quotes[this.randNumber];
   }
@@ -113,10 +117,12 @@ export class GamePage implements OnInit {
  async presentAlert(message: string) {
   const alert = await this.alertController.create({
     message,
+    backdropDismiss: false,
     buttons: [{
       text: 'Ok',
       handler: () => {
         this.resetBoard();
+        this.getQuote();
       }
     }]
   });
