@@ -1,3 +1,24 @@
+ion-content {
+  --overflow: hidden; // no scroll
+}
+
+ion-button{
+  width: 100%;
+  --background: linear-gradient(13deg, rgba(255,239,56,1) 50%, rgba(255,255,255,1) 75%);
+  --color: brown;
+}
+
+ion-grid {
+  padding-top: 3rem;
+}
+
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+// Below is css code for the blocks on the background
+
 .block, .block2, .block3, .block4, .block5, .block6, .block7 {
   position: absolute;
   display: block;
@@ -69,17 +90,4 @@
 
 }
 
-ion-button{
-  width: 100%;
-  --background: linear-gradient(13deg, rgba(255,239,56,1) 50%, rgba(255,255,255,1) 75%);
-  --color: brown;
-}
 
-ion-grid {
-  padding-top: 3rem;
-}
-
-h1 {
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-}
