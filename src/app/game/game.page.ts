@@ -40,8 +40,8 @@ export class GamePage implements OnInit {
   }
 
   startTimer() {
-    const source = interval(1000);
-    this.subscription = source.subscribe(val => {
+    const int = interval(1000);
+    this.subscription = int.subscribe(val => {
       if (this.isPlayerOne) {
         this.playerOneTime--;
       } else {
@@ -82,28 +82,28 @@ export class GamePage implements OnInit {
  checkStatus(i: number, z: number) {
   if ((this.gameArray[i][0] === this.gameArray[i][1]) &&
       (this.gameArray[i][0] === this.gameArray[i][2])) {
-        this.presentAlert('Game won by ' + this.gameArray[i][0]);
+        this.presentAlert('Game won by player' + this.gameArray[i][0]);
         console.log('Game won by ' + this.gameArray[i][0]);
   }
 
   if ((this.gameArray[0][z] === this.gameArray[1][z]) &&
       (this.gameArray[0][z] === this.gameArray[2][z])) {
-        this.presentAlert('Game won by ' + this.gameArray[0][z]);
+        this.presentAlert('Game won by palyer' + this.gameArray[0][z]);
         console.log('Game won by ' + this.gameArray[0][z]);
   }
 
   if ((this.gameArray[0][0] === this.gameArray[1][1]) &&
       (this.gameArray[0][0] === this.gameArray[2][2]) &&
       (this.gameArray[0][0] !== 0)) {
-        this.presentAlert('Game won by ' + this.gameArray[0][0]);
+        this.presentAlert('Game won by player' + this.gameArray[0][0]);
         console.log('Game won by ' + this.gameArray[0][0]);
   }
 
   if ((this.gameArray[0][2] === this.gameArray[1][1]) &&
       (this.gameArray[0][2] === this.gameArray[2][0]) &&
       (this.gameArray[0][2] !== 0)) {
-        this.presentAlert('Game won by ' + this.gameArray[0][2]);
-        console.log('Game won by ' + this.gameArray[0][2]);
+        this.presentAlert('Game won by player' + this.gameArray[0][2]);
+        console.log('Game won by player' + this.gameArray[0][2]);
   }
 
   if ((!this.gameArray[0].includes(0)) &&
