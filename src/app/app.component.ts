@@ -19,6 +19,12 @@ export class AppComponent {
   }
 
   initializeApp() {
+    if (this.platform.is('cordova')) {
+      console.log('Cordova is available');
+    } else {
+      console.log('Cordova is not available');
+    }
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
