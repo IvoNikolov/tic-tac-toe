@@ -36,8 +36,7 @@ export class HomePage {
       buttons: [{
         text: 'Ok',
         handler: () => {
-          // TODO: Exit app
-          console.log('Ok');
+          navigator[`app`].exitApp();
         },
       },
       {
